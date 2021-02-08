@@ -10,32 +10,32 @@ def populate():
 
     python_pages = [
         {'title': 'Official Python Tutorial',
-         'url':'http://docs.python.org/3/tutorial/','views':128,
+         'url':'http://docs.python.org/3/tutorial/','views':10,
          'likes':64},
         {'title':'How to Think like a Computer Scientist',
-         'url':'http://www.greenteapress.com/thinkpython/','views':128,
+         'url':'http://www.greenteapress.com/thinkpython/','views':11,
          'likes':64},
         {'title':'Learn Python in 10 Minutes',
-         'url':'http://www.korokithakis.net/tutorials/python/','views':128,
+         'url':'http://www.korokithakis.net/tutorials/python/','views':12,
          'likes':64}]
 
     django_pages = [
         {'title':'Official Django Tutorial',
-         'url':'https://docs.djangoproject.com/en/2.1/intro/tutorial01/','views':64,
+         'url':'https://docs.djangoproject.com/en/2.1/intro/tutorial01/','views':13,
          'likes':32},
         {'title':'Django Rocks',
-         'url':'http://www.djangorocks.com/','views':64,
+         'url':'http://www.djangorocks.com/','views':14,
          'likes':32},
         {'title':'How to Tango with Django',
-         'url':'http://www.tangowithdjango.com/','views':64,
+         'url':'http://www.tangowithdjango.com/','views':15,
          'likes':32}]
 
     other_pages = [
         {'title':'Bottle',
-         'url':'http://bottlepy.org/docs/dev/','views':32,
+         'url':'http://bottlepy.org/docs/dev/','views':16,
          'likes':16},
         {'title':'Flask',
-         'url':'http://flask.pocoo.org','views':32,
+         'url':'http://flask.pocoo.org','views':17,
          'likes':16}]
 
     cats = {'Python': {'pages': python_pages, 'views':128, 'likes':64},
@@ -45,7 +45,7 @@ def populate():
     for cat, cat_data in cats.items():
         c = add_cat(cat,cat_data['views'],cat_data['likes'])
         for p in cat_data['pages']:
-            add_page(c, p['title'], p['url'],)
+            add_page(c, p['title'], p['url'], p['views'])
 
     for c in Category.objects.all():
         for p in Page.objects.filter(category=c):
