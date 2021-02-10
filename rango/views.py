@@ -78,11 +78,11 @@ def add_page(request, category_name_slug):
                 return redirect(reverse('rango:show_category',
                                         kwargs={'category_name_slug':
                                                 category_name_slug}))
-            else:
-                print(form.errors)
+        else:
+            print(form.errors)
 
-        context_dict = {'form': form, 'category': category}
-        return render(request, 'rango/add_page.html', context=context_dict)
+    context_dict = {'form': form, 'category': category}
+    return render(request, 'rango/add_page.html', context=context_dict)
 
 def register(request):
     registered = False
@@ -137,7 +137,7 @@ def user_login(request):
 
 @login_required
 def restricted(request):
-    return HttpResponse("Since you're logged in, you can see this text!")
+    return render(request, 'rango/restricted.html')
 
 @login_required
 def user_logout(request):
